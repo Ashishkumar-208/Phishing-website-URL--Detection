@@ -6,27 +6,25 @@ A Machine Learning-based system that detects phishing websites using URL-level l
 
 ## Project Overview
 
-Phishing is a major cybersecurity threat where attackers create fake websites to steal sensitive user information such as login credentials, credit card details, and banking passwords.
-This project uses **Machine Learning (XGBoost)** to classify URLs as **Phishing** or **Legitimate** based only on URL features—making it fast, lightweight, and real-time.
+Phishing attacks are widely used to trick users into revealing personal information such as passwords or financial details. Attackers usually create fake pages that look similar to trusted websites.  
+This project identifies phishing links using URL-based features without loading full web content, making it fast and lightweight.
 
-This project includes:
-
-* Dataset preprocessing
-* Feature engineering
-* Multiple ML model training
-* Evaluation & selection
-* Flask deployment
-* Logging & result interpretation
+The project includes:
+- Dataset preprocessing  
+- URL feature extraction  
+- Model training and comparison  
+- Deployment using Flask  
+- Logging of predictions
 
 ## 🎯Features of the Project
 
-* ✔ URL-based phishing detection
-* ✔ Lexical, structural, and domain-based feature extraction
-* ✔ Models trained: Logistic Regression, Random Forest, XGBoost
-* ✔ Highest accuracy model (XGBoost) deployed
-* ✔ Real-time URL prediction through Flask
-* ✔ Logs stored for monitoring
-* ✔ Simple and clean UI for user
+- Detects phishing URLs using URL-based characteristics  
+- Extracts lexical, structural, and domain features  
+- Models used: Logistic Regression, Random Forest, XGBoost  
+- XGBoost selected as the final model  
+- Real-time detection using a Flask web app  
+- Simple and user-friendly interface  
+- Logs stored for future reference
 
 ## Project Architecture
 
@@ -57,48 +55,48 @@ User → Flask Web App → Feature Extraction → XGBoost Model → Prediction �
 ## 📊Detailed Methodology
 
 ### 1. Data Collection
-
-* Phishing URLs → PhishTank, Kaggle
-* Legitimate URLs → Alexa Top Sites
-* Dataset balanced and cleaned
+- Phishing URLs collected from PhishTank and Kaggle  
+- Legitimate URLs collected from Alexa Top Sites  
+- Dataset balanced and cleaned  
 
 ### 2. Preprocessing
-
-* Removes duplicates
-* Standardizes labels
-* Normalizes URL strings
-* Handles empty/corrupted URLs
+- Removed duplicate URLs  
+- Handled corrupted and blank entries  
+- Standardized labels  
+- Normalized URL text  
 
 ### 3. Feature Engineering
-
-* Lexical features (length, digits, dots, symbols…)
-* Domain features (IP usage, domain age, DNS availability)
-* Structural features (depth, redirections, queries)
-* HTTPS & certificate features
+- Lexical features: length, digits, symbols, number of dots  
+- Structural features: URL depth, redirections, parameters  
+- Domain features: IP usage, domain age, DNS records  
+- Security indicators: HTTPS or HTTP  
 
 ### 4. Model Training
+Models tested:
+- Logistic Regression  
+- Random Forest  
+- XGBoost  
 
-* Logistic Regression
-* Random Forest
-* XGBoost (best performance)
-* Evaluation metrics → Accuracy, Precision, Recall, F1-score
+Metrics used:
+- Accuracy  
+- Precision  
+- Recall  
+- F1-score  
 
 ### 5. Deployment
-
-* Flask web app
-* URL input form
-* Real-time prediction output
-* Logs generated for analysis
+- Flask was used to build the interface  
+- Model integrated for real-time prediction  
+- Logging mechanism implemented  
 
 ## 💡Technologies Used
 
-* Python 3.x
-* Flask
-* Scikit-learn
-* XGBoost
-* NumPy & Pandas
-* BeautifulSoup / urllib
-* HTML / CSS / javascript
+- Python 3.x
+- Flask
+- Scikit-learn
+- XGBoost
+- NumPy & Pandas
+- BeautifulSoup / urllib
+- HTML / CSS / javascript
 
 ## 🔍 How It Works
 
@@ -182,11 +180,11 @@ http://127.0.0.1:5000/
 
 Dataset includes:
 
-* Phishing URLs
-* Legitimate URLs
-* Cleaned & balanced
-* 30+ URL-based features extracted
-* Stored in `.csv` format
+- Phishing URLs
+- Legitimate URLs
+- Cleaned & balanced
+- 30+ URL-based features extracted
+- Stored in `.csv` format
 
 ---
 ## 📈 Results
@@ -206,12 +204,12 @@ This project shows how Machine Learning can be used to detect phishing websites 
 
 ## 📚References
 
-* PhishTank – Phishing URL Dataset
-* Kaggle – Phishing Websites Dataset
-* Alexa – Legitimate Top Sites
-* scikit-learn Documentation
-* XGBoost Documentation
-* Flask Documentation
+- PhishTank – Phishing URL Dataset
+- Kaggle – Phishing Websites Dataset
+- Alexa – Legitimate Top Sites
+- scikit-learn Documentation
+- XGBoost Documentation
+- Flask Documentation
 
 ---
 
