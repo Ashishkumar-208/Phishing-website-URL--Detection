@@ -154,7 +154,8 @@ Evaluation metrics:
 - Real-time predictions  
 - Logs generated for monitoring  
 
----
+---<img width="1288" height="482" alt="Screenshot 2025-11-27 010054" src="https://github.com/user-attachments/assets/d84e370a-1a9a-4f93-999f-f56797baa6b9" />
+
 
 ## 🛠️ Installation & Setup
 
