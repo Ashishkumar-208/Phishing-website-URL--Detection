@@ -109,20 +109,27 @@ Metrics used:
 This section shows how the Phishing Website Detection System works in real life.
 The following screenshots explain each stage—from running the backend server to checking URLs and getting the final prediction.
 These outputs help to understand how the project behaves practically, beyond theory
-
 http://127.0.0.1:5000/
+
 <img width="1733" height="831" alt="Screenshot 2025-11-26 215630" src="https://github.com/user-attachments/assets/82bb98f1-db2c-4b77-8317-b4984929393c" />
+
 In this step, the user enters a website link (e.g., https://google.com) into the input box.
 When the user clicks on the Check URL button, the backend processes the URL, extracts features, and sends it to the ML model.
+
 <img width="1801" height="546" alt="Screenshot 2025-11-26 215749 - Copy" src="https://github.com/user-attachments/assets/f09bae94-d4d1-4316-b689-f20c1240228d" />
+
 After checking the URL, the model returns the result.
 In this case, the system correctly identifies google.com as a safe and legitimate website.
 The output clearly displays the scanned URL and the prediction result.
+
 <img width="1808" height="647" alt="Screenshot 2025-11-26 220031" src="https://github.com/user-attachments/assets/660a71ef-513c-4077-b1c3-737f5400a4fa" />
+
 This screenshot shows the system detecting a suspicious URL like https://paypa1.com,
 which is a fake version of PayPal where "l" is replaced with "1".
 The system correctly marks it as a phishing website and warns the user.
+
 <img width="1288" height="482" alt="Screenshot 2025-11-27 010054" src="https://github.com/user-attachments/assets/051b7fcb-5ac1-4ffa-a6c9-75dadc7b6eb8" />
+
 The system correctly identifies the URL https://paypa1.com as a Phishing / Fake website and warns the user before visiting the site.
 
 ---
