@@ -33,15 +33,7 @@ User → Flask Web App → Feature Extraction → XGBoost Model → Prediction �
 
 ## 📂 Project Structure
 
-├── app.py                 # Flask application
-├── model.pkl              # Trained XGBoost model (joblib/pickle)
-├── feature_extractor.py   # Feature engineering module
-├── utils.py               # URL parsing and helper functions
-├── static/                # CSS & assets
-├── templates/             # HTML templates (index.html, result.html)
-├── dataset/               # Raw & processed datasets
-├── logs/                  # URL analysis logs
-└── README.md              # Project documentation
+<img width="783" height="306" alt="Screenshot 2025-11-27 014139" src="https://github.com/user-attachments/assets/8a9f7ed5-2fe1-4281-a7f8-788647ac2180" />
 
 ## 🔍How It Works
 
@@ -112,50 +104,28 @@ Metrics used:
 
 ---
 
-## 📊 Detailed Methodology
+## System Implementation & Output Screenshots
 
-### 1. Data Collection
-- PhishTank → Verified phishing URLs  
-- Kaggle → Phishing datasets  
-- Alexa Top Sites → Legitimate URLs  
+This section shows how the Phishing Website Detection System works in real life.
+The following screenshots explain each stage—from running the backend server to checking URLs and getting the final prediction.
+These outputs help to understand how the project behaves practically, beyond theory
 
-### 2. Preprocessing
-- Removed duplicates  
-- Cleaned malformed URLs  
-- Standardized labels  
-- Normalized URL strings  
+http://127.0.0.1:5000/
+<img width="1733" height="831" alt="Screenshot 2025-11-26 215630" src="https://github.com/user-attachments/assets/82bb98f1-db2c-4b77-8317-b4984929393c" />
+In this step, the user enters a website link (e.g., https://google.com) into the input box.
+When the user clicks on the Check URL button, the backend processes the URL, extracts features, and sends it to the ML model.
+<img width="1801" height="546" alt="Screenshot 2025-11-26 215749 - Copy" src="https://github.com/user-attachments/assets/f09bae94-d4d1-4316-b689-f20c1240228d" />
+After checking the URL, the model returns the result.
+In this case, the system correctly identifies google.com as a safe and legitimate website.
+The output clearly displays the scanned URL and the prediction result.
+<img width="1808" height="647" alt="Screenshot 2025-11-26 220031" src="https://github.com/user-attachments/assets/660a71ef-513c-4077-b1c3-737f5400a4fa" />
+This screenshot shows the system detecting a suspicious URL like https://paypa1.com,
+which is a fake version of PayPal where "l" is replaced with "1".
+The system correctly marks it as a phishing website and warns the user.
+<img width="1288" height="482" alt="Screenshot 2025-11-27 010054" src="https://github.com/user-attachments/assets/051b7fcb-5ac1-4ffa-a6c9-75dadc7b6eb8" />
+The system correctly identifies the URL https://paypa1.com as a Phishing / Fake website and warns the user before visiting the site.
 
-### 3. Feature Engineering
-Extracts multiple features:
-- URL length  
-- Number of dots & digits  
-- Number of special characters  
-- Prefix/suffix (`-`) usage  
-- IP address usage  
-- HTTPS presence  
-- Domain age  
-- URL depth  
-- Redirection patterns  
-
-### 4. Model Training
-Models tested:
-- Logistic Regression  
-- Random Forest  
-- XGBoost (BEST)
-
-Evaluation metrics:
-- Accuracy  
-- Precision  
-- Recall  
-- F1-score  
-
-### 5. Deployment
-- Flask interface  
-- Real-time predictions  
-- Logs generated for monitoring  
-
----<img width="1288" height="482" alt="Screenshot 2025-11-27 010054" src="https://github.com/user-attachments/assets/d84e370a-1a9a-4f93-999f-f56797baa6b9" />
-
+---
 
 ## 🛠️ Installation & Setup
 
