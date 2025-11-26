@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phishing Website URL Detection</title>
+
+    <!-- Bootstrap CDN (sirf basic reset ke liye) -->
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous"
+    />
+
+    <!-- Custom Styles -->
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- TOP HEADER BAR -->
+    <header class="top-bar">
+        <div class="top-left">
+            <div class="logo-box">
+                <span class="logo-dot"></span>
+            </div>
+            <div>
+                <h1 class="site-title">Phishing Website URL Detection</h1>
+                <p class="site-subtitle">
+                    Paste any website link and check if it looks Safe or Phishing.
+                </p>
+            </div>
+        </div>
+
+        <div class="top-right">
+            <button class="icon-btn" id="themeToggle" title="Toggle theme">
+                🌙
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-wrapper">
+        <div class="page-container">
+            <!-- Intro text -->
+            <section class="hero-text">
+                <p>
+                    Phishing websites are fake sites that try to steal your personal or financial information by pretending to be trusted brands.
+                    They may use names/logos of famous banks, social media platforms, or payment apps to look real, but secretly record your details.
+                    Always check for suspicious URLs or requests for passwords. Scan any unknown, suspicious, or urgent website links using this tool first!!
+                </p>
+                <p>
+                    Paste the URL, <strong>Check URL</strong> Click Button, and
+                    check your site <strong>Legitimate</strong> or 
+                    <strong>Phishing</strong>.
+                </p>
+            </section>
+
+            <!-- Main card: input + result -->
+            <section class="card main-card">
+                <!-- URL Input Form -->
+                <form action="/" method="POST" class="scan-form">
+                    <input
+                        type="text"
+                        class="scan-input"
+                        id="url"
+                        name="url"
+                        placeholder="Paste website URL here (e.g. https://example.com)"
+                        required
+                        value="{{ url if url }}"
+                    />
+                    <button class="scan-btn" type="submit">Check URL</button>
+                </form>
+
+                <!-- RESULT AREA -->
+                {% if verdict %}
+                    <div class="result-section">
+                        <p class="result-url">
+                            Scanned URL:
+                            <a href="{{ url }}" target="_blank">{{ url }}</a>
+                        </p>
+
+                        <p class="result-verdict" id="prediction">
+                            {{ verdict }}
+                        </p>
+
+                        <div class="result-actions">
+                            {% if is_safe %}
+                                <a
+                                    href="{{ url }}"
+                                    target="_blank"
+                                    class="primary-btn"
+                                >
+                                    Continue (Open Website)
+                                </a>
+                            {% else %}
+                                <a
+                                    href="{{ url }}"
+                                    target="_blank"
+                                    class="danger-btn"
+                                >
+                                    Still want to Continue (Risky)
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% else %}
+                    <!-- First load text -->
+                    <div class="empty-state">
+                        <p>
+                            Paste any URL above and click
+                            <strong>Check URL</strong> to see if it is Safe or
+                            Phishing.
+                        </p>
+                    </div>
+                {% endif %}
+            </section>
+            <br><br>
+        
+            <footer class="footer">
+                ©2025 Ashish Kumar • Phishing Website URL Detection Tool
+            </footer>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+
+    <!-- Theme toggle JS -->
+    <script>
+        const toggleBtn = document.getElementById("themeToggle");
+        const body = document.body;
+
+        toggleBtn.addEventListener("click", () => {
+            body.classList.toggle("light-theme");
+            if (body.classList.contains("light-theme")) {
+                toggleBtn.textContent = "☀️";
+            } else {
+                toggleBtn.textContent = "🌙";
+            }
+        });
+    </script>
+</body>
+</html>
+
